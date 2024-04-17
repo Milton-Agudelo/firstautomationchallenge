@@ -28,8 +28,15 @@ public class DemoBlazeTest {
 
     @Test
     public void searchFirstPhone() {
+        WebElement phonesCategoryCard = browserDriver.findElement(By.linkText("Phones"));
+        phonesCategoryCard.click();
+        
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
         WebElement firstPhoneLink = browserDriver.findElement(By.linkText("HTC One M9"));
         firstPhoneLink.click();
+
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         WebElement phonePrice = browserDriver.findElement(By.tagName("h3"));
         
@@ -38,31 +45,20 @@ public class DemoBlazeTest {
 
 
     @Test
-    public void searchSecondPhone() {
-        WebElement nextPhonesTagButton = browserDriver.findElement(By.id("next2"));
-        nextPhonesTagButton.click();
-
-        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        WebElement secondPhoneLink = browserDriver.findElement(By.linkText("MacBook air"));
-        secondPhoneLink.click();
-
-        WebElement phoneName = browserDriver.findElement(By.tagName("h2"));
-        
-        assertTrue("MacBook air".equals(phoneName.getText()));
-    }
-
-    @Test
     public void searchFirstLaptop() {
         WebElement laptopsCategoryCard = browserDriver.findElement(By.linkText("Laptops"));
         laptopsCategoryCard.click();
 
-        WebElement firstLaptop = browserDriver.findElement(By.linkText("MacBook Pro"));
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        WebElement firstLaptop = browserDriver.findElement(By.linkText("MacBook air"));
         firstLaptop.click();
 
-        WebElement laptopName = browserDriver.findElement(By.tagName("h2"));
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        WebElement laptopPrice = browserDriver.findElement(By.tagName("h3"));
         
-        assertEquals("MacBook Pro", laptopName.getText());
+        assertEquals("$700 *includes tax", laptopPrice.getText());
     }
 
     @Test
@@ -70,13 +66,33 @@ public class DemoBlazeTest {
         WebElement laptopsCategoryCard = browserDriver.findElement(By.linkText("Laptops"));
         laptopsCategoryCard.click();
 
-        WebElement secondLaptop = browserDriver.findElement(By.linkText("Dell i7 8gb"));
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        WebElement secondLaptop = browserDriver.findElement(By.linkText("MacBook Pro"));
         secondLaptop.click();
 
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         
-        WebElement laptopName = browserDriver.findElement(By.tagName("h2"));
+        WebElement laptopPrice = browserDriver.findElement(By.tagName("h3"));
         
-        assertEquals("Dell i7 8gb", laptopName.getText());
+        assertEquals("$1100 *includes tax", laptopPrice.getText());
+    }
+
+    @Test
+    public void searchThirdLaptop() {
+        WebElement laptopsCategoryCard = browserDriver.findElement(By.linkText("Laptops"));
+        laptopsCategoryCard.click();
+
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        WebElement secondPhoneLink = browserDriver.findElement(By.linkText("Dell i7 8gb"));
+        secondPhoneLink.click();
+
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        WebElement laptopPrice = browserDriver.findElement(By.tagName("h3"));
+        
+        assertTrue("$700 *includes tax".equals(laptopPrice.getText()));
     }
 
     @Test
@@ -84,8 +100,12 @@ public class DemoBlazeTest {
         WebElement monitorsCategoryCard = browserDriver.findElement(By.linkText("Monitors"));
         monitorsCategoryCard.click();
 
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
         WebElement firstMonitor = browserDriver.findElement(By.linkText("ASUS Full HD"));
         firstMonitor.click();
+
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         WebElement monitorPrice = browserDriver.findElement(By.tagName("h3"));
         
